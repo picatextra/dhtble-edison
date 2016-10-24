@@ -40,15 +40,15 @@ var DhtCharacteristic = function () {
     uuid: myuuid,
     properties: ['read'],
     descriptors: [new Descriptor({
-      uuid: '7aa116c4',
+      uuid: '2A19',
       value: 'Battery level in %'
     }),
     new Descriptor({
-      uuid: '7aa11a98',
+      uuid: '2A6E',
       value: "Temperature in C"
     }),
     new Descriptor({
-      uuid: '7aa11cc8',
+      uuid: '2A6F',
       value: "Humidity in %"
     })]
   });
