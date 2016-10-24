@@ -1,5 +1,5 @@
 var bleno = require('bleno');
-var dht = require('node_dht_edison');
+var dht = require('node-dht-edison');
 
 
 
