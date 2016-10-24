@@ -25,7 +25,7 @@ bleno.on('advertisingStart', function (error) {
   if (!error) {
     bleno.setServices([
       new BlenoPrimaryService({
-        uuid: myuuid,
+        uuid: '180F',
         characteristics: [new DhtCharacteristic()]
       })
     ]);
@@ -85,7 +85,7 @@ DhtCharacteristic.prototype.onWriteRequest = function(data, offset, withoutRespo
 
   callback(this.RESULT_SUCCESS);
 };
-*/
+
 DhtCharacteristic.prototype.onSubscribe = function(maxValueSize, updateValueCallback) {
   console.log('DhtCharacteristic - onSubscribe');
   this._updateValueCallback = updateValueCallback;
@@ -95,4 +95,4 @@ DhtCharacteristic.prototype.onUnsubscribe = function() {
   console.log('DhtCharacteristic - onUnsubscribe');
   this._updateValueCallback = null;
 };
-
+*/
