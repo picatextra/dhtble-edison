@@ -33,6 +33,7 @@ bleno.on('advertisingStart', function (error) {
 });
 
 var util = require('util');
+var Descriptor = bleno.Descriptor;
 var BlenoCharacteristic = bleno.Characteristic;
 var DhtCharacteristic = function () {
   DhtCharacteristic.super_.call(this, {
