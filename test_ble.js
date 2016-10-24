@@ -4,7 +4,7 @@ var dht = require('node-dht-edison');
 
 
 var BlenoPrimaryService = bleno.PrimaryService;
-var DhtCharacteristic = require('./characteristic');
+var BatteryLevelCharacteristic = require('./charact_battery');
 var myuuid = '9638690c99bc11e69f33a24fc0d9649c';
 
 console.log('bleno - echo');
