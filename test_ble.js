@@ -85,7 +85,7 @@ DhtCharacteristic.prototype.onWriteRequest = function(data, offset, withoutRespo
 
   callback(this.RESULT_SUCCESS);
 };
-
+*/
 DhtCharacteristic.prototype.onSubscribe = function(maxValueSize, updateValueCallback) {
   console.log('DhtCharacteristic - onSubscribe');
   this._updateValueCallback = updateValueCallback;
@@ -96,4 +96,3 @@ DhtCharacteristic.prototype.onUnsubscribe = function() {
   this._updateValueCallback = null;
 };
 
-*/
