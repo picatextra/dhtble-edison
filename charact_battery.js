@@ -20,7 +20,7 @@ BatteryLevelCharacteristic.prototype.onReadRequest = function (offset, callback)
   exec("battery-voltage",function (error, stdout, stderr) {
     //Battery Voltage = 3460 mV
     //Battery level = 5%
-    var percent = stdout.read.split('=')[3].split('%')[0];
+    var percent = stdout.split('=')[3].split('%')[0];
     callback(this.RESULT_SUCCESS, new Buffer([percent]));
   });
 };
