@@ -13,7 +13,7 @@ bleno.on('stateChange', function (state) {
   console.log('on -> stateChange: ' + state);
 
   if (state === 'poweredOn') {
-    bleno.startAdvertising('dht', [myuuid]);
+    bleno.startAdvertising('dht', ['180F']);
   } else {
     bleno.stopAdvertising();
   }
@@ -37,23 +37,23 @@ var Descriptor = bleno.Descriptor;
 var BlenoCharacteristic = bleno.Characteristic;
 var DhtCharacteristic = function () {
   DhtCharacteristic.super_.call(this, {
-    uuid: myuuid,
-    properties: ['read'],
-    descriptors: [new Descriptor({
-      uuid: '2A19',
+    uuid: '2A19',
+    properties: ['read']
+    /*descriptors: [
+      new Descriptor({
+      uuid: '2901',
       value: 'Battery level in %'
-    }),
-    new Descriptor({
-      uuid: '2A6E',
-      value: "Temperature in C"
-    }),
-    new Descriptor({
-      uuid: '2A6F',
-      value: "Humidity in %"
-    })]
+      }),
+      new Descriptor({
+        uuid: '2A6E',
+        value: "Temperature in C"
+      }),
+      new Descriptor({
+        uuid: '2A6F',
+        value: "Humidity in %"
+      })]*/
   });
 
-  this._value = new Buffer(0);
   this._updateValueCallback = null;
 };
 
