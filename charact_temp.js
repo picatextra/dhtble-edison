@@ -13,7 +13,7 @@ var TemperatureCharacteristic = function () {
 
 util.inherits(TemperatureCharacteristic, BlenoCharacteristic);
 
-BatteryLevelCharacteristic.prototype.onReadRequest = function (offset, callback) {
+TemperatureCharacteristic.prototype.onReadRequest = function (offset, callback) {
   if (dht.last().valid) {
     var t = parseFloat(dht.last().t);
     callback(this.RESULT_SUCCESS, new Buffer([t]));
