@@ -1,5 +1,5 @@
 var dht = require('node-dht-edison');
 
-var last = dht.Read(31);
+var last = dht.read(31);
 
 module.exports = last;
