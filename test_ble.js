@@ -2,7 +2,7 @@ var bleno = require('bleno');
 
 var BlenoPrimaryService = bleno.PrimaryService;
 var BatteryLevelCharacteristic = require('./charact_battery');
-var TemperatureCharacteristic = requere('./charact_temp')
+var TemperatureCharacteristic = require('./charact_temp')
 var myuuid = '9638690c99bc11e69f33a24fc0d9649c';
 
 console.log('bleno - echo');
