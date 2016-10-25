@@ -1,5 +1,6 @@
 var util = require('util');
-var dht = require('./dht');
+//var dht = require('./dht');
+var dht = require('node-dht-edison');
 var bleno = require('bleno');
 
 var BlenoCharacteristic = bleno.Characteristic;
@@ -14,8 +15,10 @@ var TemperatureCharacteristic = function () {
 util.inherits(TemperatureCharacteristic, BlenoCharacteristic);
 
 TemperatureCharacteristic.prototype.onReadRequest = function (offset, callback) {
-  if (dht.last().valid) {
-    var t = parseFloat(dht.last().t);
+  var ret=dht.read(31);
+  if (ret.valid) {
+    var t = parseFloat(ret.t);
+    console.log("t="+t);
     callback(this.RESULT_SUCCESS, new Buffer([t]));
   }
   else {
