@@ -5,7 +5,7 @@ var bleno = require('bleno');
 var BlenoCharacteristic = bleno.Characteristic;
 
 var TemperatureCharacteristic = function () {
-  BatteryLevelCharacteristic.super_.call(this, {
+  TemperatureCharacteristic.super_.call(this, {
     uuid: '2A6E',
     properties: ['read']
   });
