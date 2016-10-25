@@ -15,7 +15,6 @@ var BatteryLevelCharacteristic = function () {
 util.inherits(BatteryLevelCharacteristic, BlenoCharacteristic);
 
 BatteryLevelCharacteristic.prototype.onReadRequest = function (offset, callback) {
-  console.log('DhtCharacteristic - onReadRequest');
 
   exec("battery-voltage", function (error, stdout, stderr) {
     //Battery Voltage = 3460 mV
@@ -24,7 +23,8 @@ BatteryLevelCharacteristic.prototype.onReadRequest = function (offset, callback)
     const regex = /([\d]*)%/;
 
     if ((m = regex.exec(stdout)) !== null) {
-      var percent = m[1];
+      console.log(m);
+      var percent = parseInt(m[1], 10);
       callback(this.RESULT_SUCCESS, new Buffer([percent]));
     }
     else {
