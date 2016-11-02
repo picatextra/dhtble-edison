@@ -17,9 +17,13 @@ util.inherits(TemperatureCharacteristic, BlenoCharacteristic);
 TemperatureCharacteristic.prototype.onReadRequest = function (offset, callback) {
   var ret=dht.read(31);
   if (ret.valid) {
-    var t = parseFloat(ret.t);
+    //var t = parseFloat(ret.t);
+    //var h = parseFloat(ret.h);
     console.log("t="+t);
-    callback(this.RESULT_SUCCESS, new Buffer([t]));
+    var buf = new Buffer(16);
+    buf.writeInt16(ret.t,0);
+    //buf.writeInt16(ret.h,16);
+    callback(this.RESULT_SUCCESS, buf);
   }
   else {
     callback(this.RESULT_FAIL);
