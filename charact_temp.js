@@ -21,7 +21,7 @@ TemperatureCharacteristic.prototype.onReadRequest = function (offset, callback) 
     //var h = parseFloat(ret.h);
     console.log("t="+t);
     var buf = new Buffer(16);
-    buf.writeInt16(ret.t,0);
+    buf.writeInt16BE(ret.t,0);
     //buf.writeInt16(ret.h,16);
     callback(this.RESULT_SUCCESS, buf);
   }
