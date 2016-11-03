@@ -18,7 +18,7 @@ var BatteryLevelCharacteristic = function () {
 util.inherits(BatteryLevelCharacteristic, BlenoCharacteristic);
 
 BatteryLevelCharacteristic.prototype.onReadRequest = function (offset, callback) {
-  var out=exec("battery-voltage");
+  var out = exec("battery-voltage");
   //Battery Voltage = 3460 mV
   //Battery level = 5%
 
