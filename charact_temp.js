@@ -7,7 +7,7 @@ var BlenoCharacteristic = bleno.Characteristic;
 
 var TemperatureCharacteristic = function () {
   TemperatureCharacteristic.super_.call(this, {
-    uuid: '2A6E',
+    uuid: 'FF01',
     properties: ['read']
   });
 };
@@ -16,13 +16,11 @@ util.inherits(TemperatureCharacteristic, BlenoCharacteristic);
 
 TemperatureCharacteristic.prototype.onReadRequest = function (offset, callback) {
   var ret=dht.read(31);
-  if (ret.valid) {
-    //var t = parseFloat(ret.t);
-    //var h = parseFloat(ret.h);
-    console.log("t="+t);
-    var buf = new Buffer(16);
-    buf.writeInt16BE(ret.t,0);
-    //buf.writeInt16(ret.h,16);
+    if (ret.valid) {
+    var buf = Buffer.alloc(72);
+    buf.writeFloatLE(ret.t,0);
+    buf.writeFloatLE(ret.h,32);
+    buf.writeUInt8(,64)
     callback(this.RESULT_SUCCESS, buf);
   }
   else {
